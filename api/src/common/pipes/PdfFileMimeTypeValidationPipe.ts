@@ -8,6 +8,10 @@ export class PdfFileMimeTypeValidationPipe implements PipeTransform {
       for (let i = 0; i < values.length; i++) {
         const file = values[i];
 
+        file.originalname = Buffer.from(file.originalname, 'latin1').toString(
+          'utf8',
+        );
+
         if (
           file.mimetype !== "application/pdf") {
           errors.push({ text: "Unauthorized file format loaded", file: file });
