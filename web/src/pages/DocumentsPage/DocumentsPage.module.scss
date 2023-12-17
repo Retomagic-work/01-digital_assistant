@@ -6,4 +6,22 @@
     flex-direction: column;
     gap: 30px;
   }
+
+  .loaderWrapper {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loader {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  .text {
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+  }
 }

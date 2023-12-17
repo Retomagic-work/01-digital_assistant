@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 
+import { useDispatch } from "react-redux";
 import HeaderTable from "../../components/HeaderTable";
+import Loader from "../../components/Loader";
 import RequestTable from "../../components/RequestTable";
 import Arrow from "../../components/icons/Arrow";
-
 import { DownloadModal } from "../../components/modals";
 import useFetchRequests from "../../hooks/query/useFetchRequests";
+import { useAppSelector } from "../../hooks/store";
+import { setRequest } from "../../store/reducers/requestsReducer";
 
 import c from "./HomePage.module.scss";
 
@@ -24,20 +27,38 @@ interface PageClickEvent {
 
 function HomePage() {
   const [isModal, setIsModal] = useState(false);
+  const dispatch = useDispatch();
+  const { request } = useAppSelector((state) => state.requests);
 
-  const itemsPerPage = 10;
+  const itemsPerPage = 60;
   const [itemOffset, setItemOffset] = useState(0);
   const [searchText, setSearchText] = useState<string>("");
 
   const { data, isLoading } = useFetchRequests();
 
-  if (!data) {
-    return null;
+  useEffect(() => {
+    if (data) {
+      dispatch(setRequest(data));
+    }
+  }, [data]);
+
+  if (isLoading) {
+    return (
+      <div className="loaderWrapper">
+        <div className="loader">
+          <Loader />
+        </div>
+      </div>
+    );
   }
 
-  const filterData = data.filter((elem) =>
-    elem.data.text.toLowerCase().includes(searchText.toLowerCase())
-  );
+  if (!data) return null;
+
+  const filterData = request
+    .filter((elem) =>
+      elem.data.text.toLowerCase().includes(searchText.toLowerCase())
+    )
+    .reverse();
 
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = filterData.slice(itemOffset, endOffset);
@@ -60,20 +81,25 @@ function HomePage() {
             isDownload
           />
           {isModal && <DownloadModal setIsModal={setIsModal} />}
-          {!isLoading && (
+          {currentItems.length > 0 ? (
             <>
               <RequestTable bodyData={currentItems} headerData={headerData} />
               <ReactPaginate
                 className="reactPaginate"
                 breakLabel="..."
                 nextLabel={<Arrow />}
-                onPageChange={handlePageClick}
+                onPageChange={(event) => {
+                  handlePageClick(event);
+                  window.scrollTo(0, 0);
+                }}
                 pageRangeDisplayed={5}
                 pageCount={pageCount}
                 previousLabel={<Arrow />}
                 renderOnZeroPageCount={null}
               />
             </>
+          ) : (
+            <div className={c.text}>Запросов не найдено</div>
           )}
         </div>
       </div>

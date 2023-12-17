@@ -7,10 +7,6 @@ import { RequestData } from "../../types/Requests";
 import c from "./RequestTableRow.module.scss";
 
 const RequestTableRow = ({ elem }: { elem: RequestData }) => {
-  if (elem.id === 13) {
-    console.log(elem.rating);
-  }
-
   return (
     <div className={c.row}>
       <div className={c.textContainer}>

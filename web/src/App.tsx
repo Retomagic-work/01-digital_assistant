@@ -27,7 +27,7 @@ function App() {
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <AppNavigation />
-        <ReactQueryDevtools />
+        {/* <ReactQueryDevtools /> */}
       </QueryClientProvider>
     </Provider>
   );

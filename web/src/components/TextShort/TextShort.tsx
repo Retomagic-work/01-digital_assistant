@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import Arrow from "../icons/Arrow";
 
@@ -12,22 +12,15 @@ const TexShort = ({
   oneColumn?: boolean;
 }) => {
   const [isDataShort, setIsDataShort] = useState<boolean>(true);
-  const [dataShort, setDataShort] = useState<string>("");
 
-  useEffect(() => {
-    const newValue = (text: string) => {
-      if (!isDataShort) return text;
-      if (!text) return setDataShort("");
-      if (oneColumn) {
-        const value = text.length > 85 ? `${text.substring(0, 85)}...` : text;
-        setDataShort(value);
-        return;
-      }
-      const value = text.length > 85 ? `${text.substring(0, 85)}...` : text;
-      setDataShort(value);
-    };
-    newValue(value);
-  }, [value]);
+  const newValue = (text: string) => {
+    if (!isDataShort) return text;
+    if (!text) return "";
+    if (oneColumn) {
+      return text.length > 95 ? `${text.substring(0, 95)}...` : text;
+    }
+    return text.length > 130 ? `${text.substring(0, 130)}...` : text;
+  };
 
   const handleClick = () => {
     setIsDataShort((prev) => !prev);
@@ -35,22 +28,38 @@ const TexShort = ({
 
   return (
     <div className={c.container} data-one-column={oneColumn}>
-      <p className={c.text}>{dataShort}</p>
-      {dataShort.length > 85 && (
-        <button className={c.button} onClick={handleClick}>
-          {isDataShort ? (
-            <>
-              Показать все
-              <Arrow />
-            </>
-          ) : (
-            <>
-              Скрыть
-              <Arrow data-rotate={isDataShort} />
-            </>
+      <p className={c.text}>{newValue(value)}</p>
+      {oneColumn
+        ? value?.length > 95 && (
+            <button className={c.button} onClick={handleClick}>
+              {isDataShort ? (
+                <>
+                  Показать все
+                  <Arrow />
+                </>
+              ) : (
+                <>
+                  Скрыть
+                  <Arrow data-rotate={isDataShort} />
+                </>
+              )}
+            </button>
+          )
+        : value?.length > 130 && (
+            <button className={c.button} onClick={handleClick}>
+              {isDataShort ? (
+                <>
+                  Показать все
+                  <Arrow />
+                </>
+              ) : (
+                <>
+                  Скрыть
+                  <Arrow data-rotate={isDataShort} />
+                </>
+              )}
+            </button>
           )}
-        </button>
-      )}
     </div>
   );
 };

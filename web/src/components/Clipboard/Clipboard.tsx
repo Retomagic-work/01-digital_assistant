@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import CheckIcon from "../icons/CheckIcon";
 import CopyRightIcon from "../icons/CopyRightIcon";
@@ -17,9 +17,13 @@ const Clipboard = ({ text }: ClipboardProps) => {
       setIsActive(true);
       setTimeout(() => {
         setIsActive(false);
-      }, 1000);
+      }, 1500);
     });
   };
+
+  useEffect(() => {
+    setIsActive(false);
+  }, [text]);
 
   const CopyIcon = useMemo(() => {
     return isActive ? (

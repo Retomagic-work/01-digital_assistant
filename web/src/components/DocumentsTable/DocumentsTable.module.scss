@@ -10,7 +10,7 @@
     font-size: 14px;
     .row {
       display: grid;
-      grid-template-columns: 4.7fr 2fr 2fr;
+      grid-template-columns: 4.7fr 1fr 1fr;
       align-items: center;
       justify-items: flex-end;
       gap: 10px;
@@ -48,6 +48,10 @@
 
     .titleContainer:nth-child(1) {
       justify-self: start;
+    }
+    .titleContainer:last-child {
+      text-align: end;
+      width: 184px;
     }
   }
 }

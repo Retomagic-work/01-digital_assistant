@@ -1,9 +1,15 @@
 import { NavLink } from "react-router-dom";
-
-import c from "./Header.module.scss";
 import Button from "../Button/Button";
 
+import c from "./Header.module.scss";
+
 const Header = () => {
+  const logout = () => {
+    localStorage.removeItem("isAuthInitialized");
+    localStorage.removeItem("token");
+    window.location.reload();
+  };
+
   return (
     <header className={c.header}>
       <div className="container">
@@ -21,6 +27,9 @@ const Header = () => {
             >
               <Button>Документы</Button>
             </NavLink>
+          </div>
+          <div className={c.logout} onClick={logout}>
+            Выйти из аккаунта
           </div>
         </div>
       </div>

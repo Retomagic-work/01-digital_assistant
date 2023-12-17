@@ -149,3 +149,17 @@ p {
     cursor: default;
   }
 }
+
+.loaderWrapper {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+
+  .loader {
+    width: 40px;
+    height: 40px;
+    margin-top: 150px;
+  }
+}

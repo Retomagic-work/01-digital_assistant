@@ -21,10 +21,20 @@
 
     button {
       background-color: transparent;
+      &:hover {
+        background-color: #1c1e4d;
+      }
     }
 
     .active button {
       background-color: #303381;
     }
+  }
+
+  .logout {
+    padding: 12px 13px;
+    color: #b23a46;
+    font-size: 16px;
+    cursor: pointer;
   }
 }

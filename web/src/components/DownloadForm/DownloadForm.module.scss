@@ -33,13 +33,17 @@
     }
 
     .input {
-      // position: absolute;
+      position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
       left: 0;
-      // opacity: 0;
+      opacity: 0;
       cursor: pointer;
+    }
+    &.drag {
+      outline: 3px solid #303381;
+      background-color: rgba(0, 0, 0, 0.1);
     }
   }
 
@@ -69,5 +73,19 @@
 
   .cross {
     cursor: pointer;
+  }
+
+  .loaderWrapper {
+    width: 150px;
+    height: 40px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loader {
+      width: 40px;
+      height: 40px;
+    }
   }
 }

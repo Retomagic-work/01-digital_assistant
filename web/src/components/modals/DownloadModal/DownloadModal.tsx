@@ -5,10 +5,11 @@ import {
   useCallback,
   useState,
 } from "react";
+
 import CrossIcon from "../../icons/CrossIcon";
 import RatingContainer from "../../RatingContainer";
-
 import Button from "../../Button";
+import { requestSave } from "../../../api/requests";
 
 import c from "./DownloadModal.module.scss";
 
@@ -17,6 +18,10 @@ const DownloadModal = ({
 }: {
   setIsModal: Dispatch<SetStateAction<boolean>>;
 }) => {
+  const [dateFrom, setDateFrom] = useState<string>("");
+  const [dateTo, setDateTo] = useState<string>("");
+  const [rating, setRating] = useState<number | null>(null);
+
   const [activeCategory, setActiveCategory] = useState<string>("Без рейтинга");
 
   const handleChange = (value: string) => {
@@ -38,6 +43,11 @@ const DownloadModal = ({
     []
   );
 
+  const handleClick = async () => {
+    await requestSave(dateFrom, dateTo, rating);
+    setIsModal(false);
+  };
+
   return (
     <div className={c.edit} onClick={handleClose}>
       <div className={c.container}>
@@ -49,11 +59,23 @@ const DownloadModal = ({
         </div>
         <label className={c.label}>
           Дата с:
-          <input type="date" className={c.input} placeholder="" />
+          <input
+            value={dateFrom}
+            onChange={(e) => setDateFrom(e.target.value)}
+            type="date"
+            className={c.input}
+            placeholder=""
+          />
         </label>
         <label className={c.label}>
           Дата по:
-          <input type="date" className={c.input} placeholder="" />
+          <input
+            value={dateTo}
+            onChange={(e) => setDateTo(e.target.value)}
+            type="date"
+            className={c.input}
+            placeholder=""
+          />
         </label>
         <div className={c.ratingContainer}>
           <span>Рейтинг</span>
@@ -75,11 +97,18 @@ const DownloadModal = ({
               С рейтингом
             </Button>
             {activeCategory === "С рейтингом" && (
-              <RatingContainer id={0} rating={5} />
+              <RatingContainer
+                id={0}
+                rating={rating}
+                isDownload
+                setRating={setRating}
+              />
             )}
           </div>
         </div>
-        <Button>Обновить</Button>
+        <Button className={c.buttonSave} onClick={handleClick}>
+          Скачать
+        </Button>
       </div>
     </div>
   );

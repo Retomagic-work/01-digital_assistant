@@ -1,22 +1,34 @@
-import { MouseEvent, useEffect, useState } from "react";
+import {
+  Dispatch,
+  MouseEvent,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 
 import StarIcon from "../icons/StarIcon";
 import StarIconFill from "../icons/StarIconFill";
 import { putRating } from "../../api/requests";
 
 import c from "./RatingContainer.module.scss";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
+import { useDispatch } from "react-redux";
+import { changeRating } from "../../store/reducers/requestsReducer";
 
 const RatingContainer = ({
   id,
   rating,
+  isDownload,
+  setRating,
 }: {
   id: number;
   rating: number | null;
+  isDownload?: boolean;
+  setRating?: Dispatch<SetStateAction<number | null>>;
 }) => {
-  const [count, setCount] = useState<number | null>(rating);
-
-  const queryClient = useQueryClient();
+  const dispatch = useDispatch();
+  const [count, setCount] = useState<number>(rating || 0);
+  const [isHover, setIsHover] = useState<boolean>(true);
 
   const { mutateAsync: mutationRating } = useMutation<void, Error>({
     mutationFn: () => {
@@ -26,10 +38,14 @@ const RatingContainer = ({
   });
 
   const handleClick = async () => {
+    setCount(count);
+    setIsHover(false);
+    if (isDownload && setRating) {
+      setRating(count);
+      return;
+    }
+    dispatch(changeRating({ id, count }));
     await mutationRating();
-    await queryClient.refetchQueries({
-      queryKey: ["requests"],
-    });
   };
 
   const handleMouseEnter = (e: MouseEvent<HTMLAnchorElement>) => {
@@ -40,20 +56,20 @@ const RatingContainer = ({
     }
   };
   const handleMouseOver = () => {
-    setCount(rating);
+    if (isHover) {
+      setCount(rating || 0);
+    }
   };
 
   useEffect(() => {
-    // if (rating) {
-    //   setCount(rating);
-    //   return;
-    // }
-  }, [rating]);
+    setCount(rating || 0);
+    setIsHover(true);
+  }, [rating, id]);
 
   return (
     <div className={c.container}>
       {[...Array(5).keys()].map((index) => {
-        if (count && index + 1 <= count) {
+        if (index + 1 <= count) {
           return (
             <div key={index} className={c.wrapper}>
               <StarIconFill />
