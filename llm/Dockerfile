@@ -14,7 +14,7 @@ RUN pip -q install transformers[sentencepiece]
 #RUN pip -q install bitsandbytes accelerate xformers einops
 #RUN pip -q install langchain
 RUN pip -q install sacremoses
-#RUN pip -q install nltk
+RUN pip -q install nltk
 #RUN pip -q install tensorflow
 RUN pip -q install ctransformers[cuda]
 
@@ -23,9 +23,9 @@ ADD download_models.py /usr/src/app
 RUN python download_models.py
 
 ADD intents.json /usr/src/app
-#ADD training.py /usr/src/app
-#RUN python training.py
-#ADD basic_chatbot.py /usr/src/app
+ADD training.py /usr/src/app
+RUN python training.py
+ADD basic_chatbot.py /usr/src/app
 
 
 # Add only the necessary files

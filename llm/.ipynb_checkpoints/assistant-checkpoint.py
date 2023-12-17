@@ -1,6 +1,6 @@
 from transformers import pipeline
 from ctransformers import AutoModelForCausalLM
-#from basic_chatbot import *
+from basic_chatbot import *
 
 
 class DigitalAssistant:
@@ -14,12 +14,11 @@ class DigitalAssistant:
         # Translate text to English
         translated_text_en = self.translator_ru_to_en(text, max_length=800)[0]['translation_text']
         print("translated_text_en:",translated_text_en)
-        #basic_response = get_response(predict_class(translated_text_en), intents)
-        #print("basic_response:", basic_response)
+        basic_response = get_response(predict_class(translated_text_en), intents)
+        print("basic_response:", basic_response)
 
         # Prepare text for the assistant model
-        #prompt = f"<s>[INST] You are an assistant to the Mirniy city administration [/INST] Ok, I will answer only relevant questions. [INST] {translated_text_en}, The basic response is {basic_response}. Answer: [/INST]"
-        prompt = f"<s>[INST] You are an assistant to the Mirniy city administration [/INST] Ok, I will answer only relevant questions. [INST] {translated_text_en}  Answer: [/INST]"
+        prompt = f"<s>[INST] You are an assistant to the Mirniy city administration [/INST] Ok, I will answer only relevant questions. [INST] {translated_text_en}, The basic response is {basic_response}. Answer: [/INST]"
         # Generate response
         response_text_en = self.assistant_model(prompt, max_new_tokens=256+128, temperature=0.7)
 
@@ -36,14 +35,20 @@ class DigitalAssistant:
             "администрация Мирни": "администрация города Мирный",  
             "администрацией Мирни": "администрацией города Мирный",  
             "города Мирни": "города Мирный",  
-            "Украина": " ",  
             "в Мирни": "в Мирный",  
             "городе Мирни": "городе Мирный",  
             "городом Мирни": "городом Мирный",  
             "в Мирныйе": "в городе Мирный",  
             "мэра Мирни": "мэра города Мирный",  
             "мэре Мирни": "мэре города Мирный",  
-            "Мирныййском городе": "городе Мирный"  
+            "Мирныййском городе": "городе Мирный",
+            "мэрии Мирни": "мэрии города Мирный",
+            "мэрия Мирни": "мэрия города Мирный",
+            "мэрией Мирни": "мэрией города Мирный",
+            "мэрию Мирни": "мэрию города Мирный",
+            "Мирнийского города": "города Мирный",
+            "Мирнийском городе": "городе Мирный",
+            "Мирнийскому городу": "городу Мирный",
         }  
 
         for old, new in replacements.items():  

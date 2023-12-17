@@ -39,46 +39,6 @@
             "context_set": ""
         },
         {
-            "tag": "programming",
-            "patterns": [
-                "What is progamming?",
-                "What is coding?",
-                "Tell me about programming",
-                "Tell me about coding",
-                "What is software development?"
-            ],
-            "responses": [
-                "Programming, coding or software development, means writing computer code to automate tasks."
-            ],
-            "context_set": ""
-        },
-        {
-            "tag": "resource",
-            "patterns": [
-                "Where can I learn to code?",
-                "Best way to learn to code",
-                "How can I learn programming",
-                "Good programming resources",
-                "Can you recommend good coding resources?"
-            ],
-            "responses": [
-                "Check out the NeuralNine YouTube channel and The Python Bible series (7 in 1)."
-            ],
-            "context_set": ""
-        },
-        {
-            "tag": "stocks",
-            "patterns": [
-                "What are my stocks?",
-                "Which stocks do I own?",
-                "Show my stock portfolio"
-            ],
-            "responses": [
-                "Here are your stocks!"
-            ],
-            "context_set": ""
-        },
-        {
             "tag": "weather",
             "patterns": [
                 "What's the weather like?",
@@ -93,24 +53,6 @@
                 "I'm checking the weather conditions.",
                 "Just a moment, I'll find out the weather for you.",
                 "Hold on, getting the weather information."
-            ],
-            "context_set": ""
-        },
-        {
-            "tag": "music",
-            "patterns": [
-                "Play some music",
-                "I want to listen to songs",
-                "Play my favorite song",
-                "Can you play some music?",
-                "I need some music."
-            ],
-            "responses": [
-                "Playing your favorite music.",
-                "Sure, let me play some music for you.",
-                "I'm playing the music you love.",
-                "Just a moment, I'll start the music.",
-                "Hold on, your music is about to start."
             ],
             "context_set": ""
         },
@@ -133,24 +75,6 @@
             "context_set": ""
         },
         {
-            "tag": "jokes",
-            "patterns": [
-                "Tell me a joke",
-                "I need a laugh",
-                "Know any good jokes?",
-                "Can you tell me a funny joke?",
-                "I could use a joke right now."
-            ],
-            "responses": [
-                "Here's a joke for you.",
-                "Sure, here's a funny joke.",
-                "Let me tell you a joke.",
-                "I've got a funny joke for you.",
-                "Hold on, I'll tell you a joke."
-            ],
-            "context_set": ""
-        },
-        {
             "tag": "time",
             "patterns": [
                 "What time is it?",
@@ -165,168 +89,6 @@
                 "The time is.",
                 "Let me check the time for you.",
                 "Hold on, I'll get the time."
-            ],
-            "context_set": ""
-        },
-        {
-            "tag": "sports",
-            "patterns": [
-                "What's the sports update?",
-                "Tell me about recent sports news",
-                "Who won the match?",
-                "What's the score?",
-                "Can you update me on the sports news?"
-            ],
-            "responses": [
-                "Let me check the sports update for you.",
-                "Sure, getting the latest sports news.",
-                "I'm checking the match details.",
-                "Hold on, getting the sports news.",
-                "Just a moment, I'll find out the match result for you."
-            ],
-            "context_set": ""
-        },
-        {
-            "tag": "health",
-            "patterns": [
-                "Give me health tips",
-                "Tell me a health fact",
-                "How can I stay healthy?",
-                "Can you give me a fitness tip?",
-                "I need a health tip"
-            ],
-            "responses": [
-                "Here's a health tip for you.",
-                "Sure, here's a fitness tip.",
-                "Let me share a health fact with you.",
-                "Maintaining a balanced diet and regular exercise is key to good health.",
-                "Drink plenty of water and get enough sleep for better health."
-            ],
-            "context_set": ""
-        },
-        {
-            "tag": "travel",
-            "patterns": [
-                "Find me a holiday destination",
-                "I need travel recommendations",
-                "Can you suggest a travel spot?",
-                "What are some good vacation spots?",
-                "Where should I go on vacation?"
-            ],
-            "responses": [
-                "Here's a popular travel destination.",
-                "Sure, here's a travel recommendation for you.",
-                "How about this beautiful vacation spot?",
-                "This place is a favorite among travelers.",
-                "This destination might interest you."
-            ],
-            "context_set": ""
-        },
-        {
-            "tag": "movies",
-            "patterns": [
-                "Suggest a movie",
-                "What's a good movie to watch?",
-                "I want to watch a film",
-                "Can you recommend a film?",
-                "Tell me a good movie"
-            ],
-            "responses": [
-                "Here's a movie recommendation for you.",
-                "Sure, you might like this movie.",
-                "This film has received great reviews.",
-                "How about watching this movie?",
-                "This movie is quite popular."
-            ],
-            "context_set": ""
-        },
-        {
-            "tag": "books",
-            "patterns": [
-                "Suggest a book",
-                "What's a good book to read?",
-                "I want to read a book",
-                "Can you recommend a book?",
-                "Tell me a good book"
-            ],
-            "responses": [
-                "Here's a book recommendation for you.",
-                "Sure, you might like this book.",
-                "This book has received great reviews.",
-                "How about reading this book?",
-                "This book is quite popular."
-            ],
-            "context_set": ""
-        },
-        {
-            "tag": "puzzles",
-            "patterns": [
-                "Suggest a puzzle",
-                "I want to solve a puzzle",
-                "Can you give me a puzzle?",
-                "Give me a brain teaser",
-                "I need a puzzle"
-            ],
-            "responses": [
-                "Here's a puzzle for you.",
-                "Sure, here's a brain teaser.",
-                "Try solving this puzzle.",
-                "This puzzle will make you think.",
-                "Here's an interesting puzzle."
-            ],
-            "context_set": ""
-        },
-        {
-            "tag": "quotes",
-            "patterns": [
-                "Tell me a quote",
-                "I need some inspiration",
-                "Can you share an inspiring quote?",
-                "Give me a motivational quote",
-                "I need a quote"
-            ],
-            "responses": [
-                "Here's an inspiring quote for you.",
-                "Sure, here's a motivational quote.",
-                "This quote might inspire you.",
-                "Here's a quote to motivate you.",
-                "This quote might uplift your spirits."
-            ],
-            "context_set": ""
-        },
-        {
-            "tag": "finances",
-            "patterns": [
-                "Help me with my finances",
-                "I need financial advice",
-                "Can you provide financial tips?",
-                "How can I save money?",
-                "Tell me about investing"
-            ],
-            "responses": [
-                "Here are some finance tips.",
-                "Sure, let's talk about your financial goals.",
-                "Investing in a diverse portfolio can help grow your wealth.",
-                "Creating a budget can help you save money.",
-                "Have you considered setting up a savings account?"
-            ],
-            "context_set": ""
-        },
-        {
-            "tag": "fashion",
-            "patterns": [
-                "What's the latest fashion trend?",
-                "I need fashion advice",
-                "Can you suggest an outfit?",
-                "Tell me about fashion",
-                "What should I wear today?"
-            ],
-            "responses": [
-                "Here's the latest fashion trend.",
-                "Sure, let's find an outfit that suits you.",
-                "How about this outfit?",
-                "Fashion is a way to express your individuality.",
-                "Have you considered wearing...?"
             ],
             "context_set": ""
         },
@@ -381,24 +143,6 @@
                 "Let's find a plant that's best for your garden's conditions.",
                 "Caring for plants requires the right balance of sunlight, water, and nutrients.",
                 "Gardening is a rewarding hobby that involves nurturing life."
-            ],
-            "context_set": ""
-        },
-        {
-            "tag": "home_decor",
-            "patterns": [
-                "I need home decor ideas",
-                "How can I decorate my room?",
-                "What's the latest home decor trend?",
-                "Can you suggest some home decor items?",
-                "Tell me about home decor"
-            ],
-            "responses": [
-                "Here are some home decor ideas.",
-                "Let's find a decor style that suits your taste.",
-                "The latest decor trend is...",
-                "How about this decor item for your home?",
-                "Home decor is about creating a space that reflects your personality and style."
             ],
             "context_set": ""
         },
@@ -679,6 +423,62 @@
                 "War veteran benefits in the city are...",
                 "The process to apply for war veteran benefits is...",
                 "The city administration's plan for war veteran benefits is..."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "social_security",
+            "patterns": [
+                "Tell me about social security benefits",
+                "Can you update me on social security policies?",
+                "I need information about eligibility for social security",
+                "What's being done about social security reform?",
+                "Tell me about the social security retirement age",
+                "Why are social security benefits so low?",
+                "Is there a plan to increase social security benefits?",
+                "How is social security funded?",
+                "There's a need for more social security offices in my area, who can I contact about this?",
+                "Are there any new social security policies being implemented?",
+                "What measures are being taken to ensure the sustainability of social security?",
+                "Are there any plans for new social security programs?",
+                "The social security system seems inadequate, what is the city administration doing?",
+                "Are there any initiatives to improve social security benefits?",
+                "The processing times for social security claims are too long, what is being done about this?"
+            ],
+            "responses": [
+                "Let me check the information on social security benefits.",
+                "The current social security policies are...",
+                "The eligibility criteria for social security are...",
+                "The city is taking the following steps for social security reform...",
+                "The social security retirement age is..."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "transportation and bus stops",
+            "patterns": [
+                "Tell me about the city's public transportation system",
+                "Can you update me on the bus schedules?",
+                "I need information about the bus routes",
+                "What's being done about improving bus services?",
+                "Tell me about the locations of bus stops in the city",
+                "Why is public transportation so unreliable?",
+                "Is there a plan to increase the number of bus routes?",
+                "The bus stop near my house is always crowded, what is being done about this?",
+                "There's a need for a bus stop in my area, who can I contact about this?",
+                "Are there any new transportation policies being implemented?",
+                "What measures are being taken to improve public transportation?",
+                "Are there any plans for new bus services?",
+                "The transportation services are inadequate, what is the city administration doing?",
+                "Are there any initiatives to improve bus services?",
+                "The buses are always late, what is being done about this?"
+            ],
+            "responses": [
+                "Let me check the information on the city's public transportation system.",
+                "The current bus schedules are...",
+                "The bus routes in the city are...",
+                "The city is taking the following steps for improving bus services...",
+                "The locations of bus stops in the city are..."
             ],
             "context_set": ""
         }
