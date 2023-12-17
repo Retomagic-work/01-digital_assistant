@@ -5,7 +5,10 @@
   right: 0;
   height: 80px;
   background-color: #191724;
-  z-index: 9;
+  z-index: 5;
+  @media (max-width: 490px) {
+    height: max-content;
+  }
 
   .container {
     display: flex;
@@ -13,6 +16,9 @@
     justify-content: space-between;
     gap: 20px;
     height: 100%;
+    @media (max-width: 490px) {
+      flex-direction: column;
+    }
   }
 
   .buttons {
