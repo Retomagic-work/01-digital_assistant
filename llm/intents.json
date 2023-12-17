@@ -1,0 +1,686 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi",
+                "How are you",
+                "Is anyone there?",
+                "Hello",
+                "Good day",
+                "Whats up",
+                "Hey",
+                "greetings"
+            ],
+            "responses": [
+                "Hello!",
+                "Good to see you again!",
+                "Hi there, how can I help?"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "cya",
+                "See you later",
+                "Goodbye",
+                "I am Leaving",
+                "Have a Good day",
+                "bye",
+                "cao",
+                "see ya"
+            ],
+            "responses": [
+                "Sad to see you go :(",
+                "Talk to you later",
+                "Goodbye!"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "programming",
+            "patterns": [
+                "What is progamming?",
+                "What is coding?",
+                "Tell me about programming",
+                "Tell me about coding",
+                "What is software development?"
+            ],
+            "responses": [
+                "Programming, coding or software development, means writing computer code to automate tasks."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "resource",
+            "patterns": [
+                "Where can I learn to code?",
+                "Best way to learn to code",
+                "How can I learn programming",
+                "Good programming resources",
+                "Can you recommend good coding resources?"
+            ],
+            "responses": [
+                "Check out the NeuralNine YouTube channel and The Python Bible series (7 in 1)."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "stocks",
+            "patterns": [
+                "What are my stocks?",
+                "Which stocks do I own?",
+                "Show my stock portfolio"
+            ],
+            "responses": [
+                "Here are your stocks!"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "weather",
+            "patterns": [
+                "What's the weather like?",
+                "Tell me the weather",
+                "Is it going to rain today?",
+                "Do I need an umbrella?",
+                "What's the weather forecast for today?"
+            ],
+            "responses": [
+                "Let me check the weather for you.",
+                "Sure, let me get the weather details.",
+                "I'm checking the weather conditions.",
+                "Just a moment, I'll find out the weather for you.",
+                "Hold on, getting the weather information."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "music",
+            "patterns": [
+                "Play some music",
+                "I want to listen to songs",
+                "Play my favorite song",
+                "Can you play some music?",
+                "I need some music."
+            ],
+            "responses": [
+                "Playing your favorite music.",
+                "Sure, let me play some music for you.",
+                "I'm playing the music you love.",
+                "Just a moment, I'll start the music.",
+                "Hold on, your music is about to start."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "news",
+            "patterns": [
+                "What's the news today?",
+                "Tell me the latest news",
+                "Update me on the news",
+                "I need some news updates.",
+                "Can you give me the news headlines?"
+            ],
+            "responses": [
+                "Here is the latest news.",
+                "Sure, here are the news updates.",
+                "Let me fetch the latest news for you.",
+                "I'm getting the news updates.",
+                "Hold on, I'll get the news for you."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "jokes",
+            "patterns": [
+                "Tell me a joke",
+                "I need a laugh",
+                "Know any good jokes?",
+                "Can you tell me a funny joke?",
+                "I could use a joke right now."
+            ],
+            "responses": [
+                "Here's a joke for you.",
+                "Sure, here's a funny joke.",
+                "Let me tell you a joke.",
+                "I've got a funny joke for you.",
+                "Hold on, I'll tell you a joke."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "time",
+            "patterns": [
+                "What time is it?",
+                "Can you tell me the time?",
+                "I need to know the time",
+                "What's the current time?",
+                "Can you give me the time?"
+            ],
+            "responses": [
+                "The current time is.",
+                "Sure, let me tell you the time.",
+                "The time is.",
+                "Let me check the time for you.",
+                "Hold on, I'll get the time."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "sports",
+            "patterns": [
+                "What's the sports update?",
+                "Tell me about recent sports news",
+                "Who won the match?",
+                "What's the score?",
+                "Can you update me on the sports news?"
+            ],
+            "responses": [
+                "Let me check the sports update for you.",
+                "Sure, getting the latest sports news.",
+                "I'm checking the match details.",
+                "Hold on, getting the sports news.",
+                "Just a moment, I'll find out the match result for you."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "health",
+            "patterns": [
+                "Give me health tips",
+                "Tell me a health fact",
+                "How can I stay healthy?",
+                "Can you give me a fitness tip?",
+                "I need a health tip"
+            ],
+            "responses": [
+                "Here's a health tip for you.",
+                "Sure, here's a fitness tip.",
+                "Let me share a health fact with you.",
+                "Maintaining a balanced diet and regular exercise is key to good health.",
+                "Drink plenty of water and get enough sleep for better health."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "travel",
+            "patterns": [
+                "Find me a holiday destination",
+                "I need travel recommendations",
+                "Can you suggest a travel spot?",
+                "What are some good vacation spots?",
+                "Where should I go on vacation?"
+            ],
+            "responses": [
+                "Here's a popular travel destination.",
+                "Sure, here's a travel recommendation for you.",
+                "How about this beautiful vacation spot?",
+                "This place is a favorite among travelers.",
+                "This destination might interest you."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "movies",
+            "patterns": [
+                "Suggest a movie",
+                "What's a good movie to watch?",
+                "I want to watch a film",
+                "Can you recommend a film?",
+                "Tell me a good movie"
+            ],
+            "responses": [
+                "Here's a movie recommendation for you.",
+                "Sure, you might like this movie.",
+                "This film has received great reviews.",
+                "How about watching this movie?",
+                "This movie is quite popular."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "books",
+            "patterns": [
+                "Suggest a book",
+                "What's a good book to read?",
+                "I want to read a book",
+                "Can you recommend a book?",
+                "Tell me a good book"
+            ],
+            "responses": [
+                "Here's a book recommendation for you.",
+                "Sure, you might like this book.",
+                "This book has received great reviews.",
+                "How about reading this book?",
+                "This book is quite popular."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "puzzles",
+            "patterns": [
+                "Suggest a puzzle",
+                "I want to solve a puzzle",
+                "Can you give me a puzzle?",
+                "Give me a brain teaser",
+                "I need a puzzle"
+            ],
+            "responses": [
+                "Here's a puzzle for you.",
+                "Sure, here's a brain teaser.",
+                "Try solving this puzzle.",
+                "This puzzle will make you think.",
+                "Here's an interesting puzzle."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "quotes",
+            "patterns": [
+                "Tell me a quote",
+                "I need some inspiration",
+                "Can you share an inspiring quote?",
+                "Give me a motivational quote",
+                "I need a quote"
+            ],
+            "responses": [
+                "Here's an inspiring quote for you.",
+                "Sure, here's a motivational quote.",
+                "This quote might inspire you.",
+                "Here's a quote to motivate you.",
+                "This quote might uplift your spirits."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "finances",
+            "patterns": [
+                "Help me with my finances",
+                "I need financial advice",
+                "Can you provide financial tips?",
+                "How can I save money?",
+                "Tell me about investing"
+            ],
+            "responses": [
+                "Here are some finance tips.",
+                "Sure, let's talk about your financial goals.",
+                "Investing in a diverse portfolio can help grow your wealth.",
+                "Creating a budget can help you save money.",
+                "Have you considered setting up a savings account?"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "fashion",
+            "patterns": [
+                "What's the latest fashion trend?",
+                "I need fashion advice",
+                "Can you suggest an outfit?",
+                "Tell me about fashion",
+                "What should I wear today?"
+            ],
+            "responses": [
+                "Here's the latest fashion trend.",
+                "Sure, let's find an outfit that suits you.",
+                "How about this outfit?",
+                "Fashion is a way to express your individuality.",
+                "Have you considered wearing...?"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "education",
+            "patterns": [
+                "I need help with my homework",
+                "Can you explain this topic?",
+                "I don't understand my assignment",
+                "Help me study for my test",
+                "I need help with school"
+            ],
+            "responses": [
+                "Let's look at your homework together.",
+                "Sure, what topic do you need help with?",
+                "Let's try to understand your assignment step by step.",
+                "I can help you review your study materials.",
+                "What subject are you having difficulty with?"
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "pets",
+            "patterns": [
+                "Can you give me tips on pet care?",
+                "I need help with my pet",
+                "What's the best pet for me?",
+                "How to train my pet?",
+                "Tell me about pet care"
+            ],
+            "responses": [
+                "Here are some pet care tips.",
+                "Sure, what do you need help with for your pet?",
+                "Let's find a pet that suits your lifestyle.",
+                "Training your pet requires patience and consistency.",
+                "Proper pet care involves regular feeding, exercise, and check-ups."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "gardening",
+            "patterns": [
+                "I need gardening tips",
+                "How can I grow plants?",
+                "What's the best plant for my garden?",
+                "How to care for my plants?",
+                "Tell me about gardening"
+            ],
+            "responses": [
+                "Here are some gardening tips.",
+                "Sure, let's talk about how you can grow your plants.",
+                "Let's find a plant that's best for your garden's conditions.",
+                "Caring for plants requires the right balance of sunlight, water, and nutrients.",
+                "Gardening is a rewarding hobby that involves nurturing life."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "home_decor",
+            "patterns": [
+                "I need home decor ideas",
+                "How can I decorate my room?",
+                "What's the latest home decor trend?",
+                "Can you suggest some home decor items?",
+                "Tell me about home decor"
+            ],
+            "responses": [
+                "Here are some home decor ideas.",
+                "Let's find a decor style that suits your taste.",
+                "The latest decor trend is...",
+                "How about this decor item for your home?",
+                "Home decor is about creating a space that reflects your personality and style."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "playgrounds",
+            "patterns": [
+                "Tell me about the children's playgrounds",
+                "Can you update me on the playground construction?",
+                "I need information about the playground safety measures",
+                "What's being done about the playground maintenance?",
+                "Tell me about the playground facilities",
+                "Why are there so few playgrounds in the city?",
+                "Is there a plan to build more playgrounds?",
+                "The playground in my neighborhood is unsafe, what is being done about this?",
+                "There's a need for a playground in my area, who can I contact about this?",
+                "Are there any new playground facilities being built in the city?",
+                "What measures are being taken to ensure playground safety?",
+                "Are there any plans for new playground constructions?",
+                "The playgrounds are not well-maintained, what is the city administration doing?",
+                "Are there any initiatives to improve playground facilities?",
+                "The playground equipment is broken, who can I contact about this?"
+            ],
+            "responses": [
+                "Let me check the information on the children's playgrounds.",
+                "The current status of playground construction is...",
+                "The safety measures for playgrounds are...",
+                "The city is taking the following measures for playground maintenance...",
+                "The playground facilities in the city are..."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "healthcare",
+            "patterns": [
+                "Tell me about the healthcare services",
+                "Can you update me on the healthcare facilities?",
+                "I need information about the health policies",
+                "What's being done about healthcare improvement?",
+                "Tell me about the city's health plan",
+                "Why are the healthcare services so poor in the city?",
+                "Is there a plan to improve healthcare services?",
+                "The local clinic is understaffed, what is being done about this?",
+                "There's a need for a hospital in my area, who can I contact about this?",
+                "Are there any new health policies in the city?",
+                "What measures are being taken to improve healthcare?",
+                "Are there any plans for new healthcare facilities?",
+                "The healthcare services are inadequate, what is the city administration doing?",
+                "Are there any initiatives to promote health and wellness?",
+                "The wait times at the hospital are too long, what is being done about this?"
+            ],
+            "responses": [
+                "Let me check the information on healthcare services.",
+                "The current healthcare facilities are...",
+                "The health policies in the city are...",
+                "The city is taking the following steps for healthcare improvement...",
+                "The city's health plan is..."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "unauthorized_landfills",
+            "patterns": [
+                "Tell me about unauthorized landfills",
+                "Can you update me on the unauthorized landfill situation?",
+                "I need information about waste management",
+                "What's being done about illegal dumping?",
+                "Tell me about the measures against unauthorized landfills",
+                "Why are there so many unauthorized landfills in the city?",
+                "Is there a plan to deal with the unauthorized landfill problem?",
+                "Illegal dumping is ruining our neighborhood, what is being done about this?",
+                "There's an unauthorized landfill near my house, who can I contact about this?",
+                "Are there any waste management facilities in the city?",
+                "What measures are being taken to control illegal dumping?",
+                "Are there any plans to clean up the unauthorized landfills?",
+                "The unauthorized landfills are causing problems, what is the city administration doing?",
+                "Are there any initiatives to educate people about waste management?",
+                "The unauthorized landfills are harmful to the environment, what action is being taken?"
+            ],
+            "responses": [
+                "Let me check the information on unauthorized landfills.",
+                "The current situation with unauthorized landfills is...",
+                "Waste management in the city is...",
+                "Measures against illegal dumping include...",
+                "The city administration is taking the following steps against unauthorized landfills..."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "housing",
+            "patterns": [
+                "Tell me about the housing situation",
+                "Can you update me on the demolition and resettlement from old and emergency housing?",
+                "I need information about housing policies",
+                "What's being done about old and emergency housing?",
+                "Tell me about the housing plan",
+                "Why is there so much old and emergency housing in the city?",
+                "Is there a plan to deal with the old and emergency housing problem?",
+                "The conditions of my housing are terrible, what is being done about this?",
+                "There's a dangerous building near my house, who can I contact about this?",
+                "Are there any new housing policies in the city?",
+                "What measures are being taken to improve housing conditions?",
+                "Are there any plans for new housing constructions?",
+                "The housing conditions are poor, what is the city administration doing?",
+                "Are there any initiatives to provide affordable housing?",
+                "The old and emergency housing is unsafe, what action is being taken?"
+            ],
+            "responses": [
+                "Let me check the information on the housing situation.",
+                "The current status of demolition and resettlement from old and emergency housing is...",
+                "Housing policies in the city are...",
+                "Measures for old and emergency housing include...",
+                "The city administration's housing plan is..."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "dogs",
+            "patterns": [
+                "Tell me about the stray dog situation",
+                "Can you update me on the measures for stray dogs?",
+                "I need information about the dog shelters",
+                "What's being done about stray dogs?",
+                "Tell me about the city's policy on dogs",
+                "Why are there so many stray dogs in the city?",
+                "Is there a plan to deal with the stray dog problem?",
+                "My children are scared of the stray dogs, what is being done about this?",
+                "There are too many stray dogs in my area, who can I contact about this?",
+                "Are there any dog shelters in the city?",
+                "What measures are being taken to control the stray dog population?",
+                "Are there any plans to neuter the stray dogs?",
+                "The stray dogs are causing problems, what is the city administration doing?",
+                "Are there any initiatives to adopt stray dogs?",
+                "The stray dogs are aggressive, is there a helpline I can call?"
+            ],
+            "responses": [
+                "Let me check the information on the stray dog situation.",
+                "The current measures for stray dogs are...",
+                "Dog shelters in the city are...",
+                "The city is taking the following measures for stray dogs...",
+                "The city's policy on dogs is..."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "roads",
+            "patterns": [
+                "What's the condition of the roads?",
+                "Tell me about the road construction",
+                "Can you update me on the road repair status?",
+                "I need information about road closures",
+                "Tell me about the road infrastructure",
+                "Why are the roads so bad in the city?",
+                "When will the road construction be finished?",
+                "Are there any planned road repairs?",
+                "The roads are full of potholes, when will they be fixed?",
+                "The road conditions are terrible, what is being done?",
+                "Is there a plan to improve the roads?",
+                "Why is the road construction taking so long?",
+                "Are there any updates on the roadworks?",
+                "The roads are in a state of disrepair, are there any plans for repair?",
+                "The road outside my house is in a terrible condition, who can I contact about this?"
+            ],
+            "responses": [
+                "Sure, let me get the latest update on the roads.",
+                "I'm checking the information on the road construction.",
+                "The current road repair status is...",
+                "Let me check the information on road closures.",
+                "The road infrastructure in Mirniy city is..."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "snow_cleaning",
+            "patterns": [
+                "Tell me about the snow cleaning schedule",
+                "Can you update me on the snow removal process?",
+                "I need information about the city's snow cleaning plan",
+                "What's being done about snow cleaning?",
+                "Why are the roads not cleaned from snow?",
+                "Is there a specific plan for snow cleaning?",
+                "Snow is blocking my driveway, who can I contact about this?",
+                "Are there any updates on the snow cleaning?",
+                "The snow cleaning is not satisfactory, what is the city administration doing?",
+                "The sidewalks are slippery from snow, what actions are being taken?",
+                "Are there any snow cleaning measures for residential areas?",
+                "When will the snow be cleaned from the streets?",
+                "The snow cleaning is not effective, what are the city's plans?",
+                "Are there any initiatives to improve the snow cleaning process?",
+                "The snow removal is slow, is there a better plan in place?"
+            ],
+            "responses": [
+                "Let me check the information on the snow cleaning schedule.",
+                "The current snow removal process is...",
+                "The city's snow cleaning plan is...",
+                "The city is taking the following measures for snow cleaning...",
+                "Let me check on the specific plan for snow cleaning."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "benefits_for_disabled",
+            "patterns": [
+                "Tell me about the benefits for the disabled",
+                "Can you update me on the policies for disabled benefits?",
+                "I need information about disability benefits",
+                "What benefits are available for the disabled?",
+                "How can a disabled person apply for benefits?",
+                "Are there any new policies for disabled benefits?",
+                "What is the process to claim disability benefits?",
+                "Who qualifies for disability benefits?",
+                "Are there any special facilities for disabled people?",
+                "What is the city administration doing for the disabled?",
+                "Are there any support programs for disabled people?",
+                "How can I check my eligibility for disability benefits?",
+                "Are there any financial aids for disabled people?",
+                "What medical benefits are available for disabled people?",
+                "How can I apply for disability benefits?"
+            ],
+            "responses": [
+                "Let me check the information on benefits for the disabled.",
+                "The current policies for disabled benefits are...",
+                "Disability benefits in the city are...",
+                "The process to apply for disability benefits is...",
+                "The city administration's plan for disabled benefits is..."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "kindergarten_spots",
+            "patterns": [
+                "Tell me about the spots in kindergartens",
+                "Can you update me on the kindergarten admissions?",
+                "I need information about the kindergarten availability",
+                "What's the process for kindergarten admission?",
+                "Are there any spots available in the local kindergarten?",
+                "Is there a waiting list for the kindergarten?",
+                "How can I apply for a spot in the kindergarten?",
+                "What is the city administration doing about kindergarten availability?",
+                "Are there any new kindergartens opening?",
+                "How can I check the status of my kindergarten application?",
+                "Are there any special considerations for kindergarten admission?",
+                "When does the kindergarten admission process start?",
+                "What documents are required for kindergarten admission?",
+                "Is there a deadline for kindergarten applications?",
+                "What is the age criteria for kindergarten admission?"
+            ],
+            "responses": [
+                "Let me check the information on spots in kindergartens.",
+                "The current status of kindergarten admissions is...",
+                "Kindergarten availability in the city is...",
+                "The process for kindergarten admission is...",
+                "The city administration's plan for kindergarten availability is..."
+            ],
+            "context_set": ""
+        },
+        {
+            "tag": "benefits_war_veterans",
+            "patterns": [
+                "Tell me about the benefits for war veterans",
+                "Can you update me on the policies for war veteran benefits?",
+                "I need information about war veteran benefits",
+                "What benefits are available for war veterans?",
+                "How can a war veteran apply for benefits?",
+                "Are there any new policies for war veteran benefits?",
+                "What is the process to claim war veteran benefits?",
+                "Who qualifies for war veteran benefits?",
+                "Are there any special facilities for war veterans?",
+                "What is the city administration doing for war veterans?",
+                "Are there any support programs for war veterans?",
+                "How can I check my eligibility for war veteran benefits?",
+                "Are there any financial aids for war veterans?",
+                "What medical benefits are available for war veterans?",
+                "How can I apply for war veteran benefits?"
+            ],
+            "responses": [
+                "Let me check the information on benefits for war veterans.",
+                "The current policies for war veteran benefits are...",
+                "War veteran benefits in the city are...",
+                "The process to apply for war veteran benefits is...",
+                "The city administration's plan for war veteran benefits is..."
+            ],
+            "context_set": ""
+        }
+    ]
+}

@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  gap: 30px;
+
+  @media (max-width: 450px) {
+    flex-direction: column;
+  }
+
+  .dragFilesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+    width: 100%;
+    height: max-content;
+    padding: 30px 20px;
+    border-radius: 14px;
+    background: rgba(235, 235, 245, 0.05);
+    color: #fff;
+
+    .title {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .subtitle {
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    button {
+      position: relative;
+    }
+
+    .input {
+      // position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      // opacity: 0;
+      cursor: pointer;
+    }
+  }
+
+  .filesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #fff;
+
+    .uploads {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .upload {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+
+    .text {
+      font-size: 24px;
+      font-weight: 500;
+    }
+  }
+
+  .cross {
+    cursor: pointer;
+  }
+}

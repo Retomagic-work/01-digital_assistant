@@ -1,0 +1,30 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: #191724;
+  z-index: 9;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    height: 100%;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 30px;
+
+    button {
+      background-color: transparent;
+    }
+
+    .active button {
+      background-color: #303381;
+    }
+  }
+}

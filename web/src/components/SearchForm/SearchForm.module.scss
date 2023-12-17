@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  gap: 20px;
+  max-width: 400px;
+  width: 100%;
+
+  @media(max-width:670px){
+    max-width: 100%;
+    justify-content: space-between;
+  }
+
+  .input {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 16px;
+    color: rgba(235, 235, 245, 0.3);
+    background-color: rgba(235, 235, 245, 0.05);
+    border-radius: 14px;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 13px;
+  }
+}

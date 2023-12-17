@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: bot
+    build:
+      dockerfile: Dockerfile
+      context: .
+      target: production
+    env_file:
+      - .env

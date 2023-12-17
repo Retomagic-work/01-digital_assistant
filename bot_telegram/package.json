@@ -1,0 +1,23 @@
+{
+  "name": "telegramBot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "HOLDAR",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "dotenv": "^16.3.1",
+    "nodemon": "^3.0.2",
+    "telegraf": "^4.15.3"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/bot.js",
+    "start-dev": "nodemon --exec ts-node bot.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}

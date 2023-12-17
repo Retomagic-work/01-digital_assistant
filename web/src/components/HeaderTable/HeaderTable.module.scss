@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+
+  @media(max-width:670px){
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    @media(max-width:670px){
+      justify-content: space-between;
+    }
+    .title {
+      color: #fff;
+      font-size: 24px;
+      font-weight: 500;
+    }
+  }
+}
