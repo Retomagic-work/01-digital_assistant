@@ -2,10 +2,11 @@ version: "3.8"
 
 services:
   app:
-    container_name: bot
+    container_name: telegram_bot
     build:
       dockerfile: Dockerfile
       context: .
       target: production
+    restart: always
     env_file:
       - .env

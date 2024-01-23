@@ -25,7 +25,7 @@ export class RequestsController {
 
   @ApiOperation({ summary: "Получение запроса по ID" })
   @Get(':id')
-  @Throttle(60, 60)
+  @Throttle(6000, 60)
   @UseInterceptors(ClassSerializerInterceptor)
   async getOne(@Param('id') id: number): Promise<RequestsDto> {
     try {
