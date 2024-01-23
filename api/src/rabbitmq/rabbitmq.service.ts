@@ -29,9 +29,13 @@ export class RabbitmqService {
             queueOptions: {durable: true},
             qos: {prefetchCount: 1},
         }, async (msg) => {
-            console.log(msg, msg.body)
+            console.log("1", msg.body)
             const body: RabbitmqRequestsDto = JSON.parse(msg.body)
+            console.log("2", body)
+
             await this.requestsService.updateStatus(body)
+
+            console.log("3", body)
 
             this.logger.log('received message (responses)', JSON.parse(msg.body))
         })
