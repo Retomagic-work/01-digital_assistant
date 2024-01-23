@@ -8,9 +8,10 @@ nltk.download('punkt')
 nltk.download('wordnet')
 from nltk.stem import WordNetLemmatizer
 
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Activation, Dropout
-from tensorflow.keras.optimizers.legacy import SGD
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
 
 lemmatizer = WordNetLemmatizer()
 
@@ -62,16 +63,44 @@ for (bag, output_row) in training:
 train_x = np.array(train_x)
 train_y = np.array(train_y)
 
-model = Sequential()
-model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
-model.add(Dropout(0.5))
-model.add(Dense(64, activation='relu'))
-model.add(Dropout(0.5))
-model.add(Dense(len(train_y[0]), activation='softmax'))
+class ChatBotModel(nn.Module):
+    def __init__(self):
+        super(ChatBotModel, self).__init__()
+        self.fc1 = nn.Linear(len(train_x[0]), 256)
+        self.fc2 = nn.Linear(256, 64)
+        self.fc3 = nn.Linear(64, len(train_y[0]))
 
-sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
-model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
+    def forward(self, x):
+        x = F.relu(self.fc1(x))
+        x = F.dropout(x, p=0.5)
+        x = F.relu(self.fc2(x))
+        x = F.dropout(x, p=0.5)
+        x = self.fc3(x) 
+        return x
 
-hist = model.fit(train_x, train_y, epochs=200, batch_size=5, verbose=1)
-model.save('chatbot_model.h5', hist)
+model = ChatBotModel()
+
+optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
+loss_function = nn.CrossEntropyLoss()
+
+# Convert lists to tensors
+train_x = torch.tensor(train_x).float()
+train_y = torch.tensor(train_y).long()
+
+for epoch in range(5000):
+    optimizer.zero_grad()
+    output = model(train_x)
+    loss = loss_function(output, torch.argmax(train_y, dim=1)) # Adjusted here
+    loss.backward()
+    optimizer.step()
+
+    # Calculate accuracy
+    _, predicted = torch.max(output, 1)
+    correct = (predicted == torch.argmax(train_y, dim=1)).sum().item() # Adjusted here
+    total = train_y.size(0)
+    accuracy = correct / total
+
+    print(f'Epoch {epoch+1}, Loss: {loss.item()}, Accuracy: {accuracy}')
+
+torch.save(model.state_dict(), 'chatbot_model.pth')
 print('Done')

@@ -6,14 +6,34 @@ import numpy as np
 import nltk
 from nltk.stem import WordNetLemmatizer
 
-from tensorflow.keras.models import load_model
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
 
 lemmatizer = WordNetLemmatizer()
 intents = json.loads(open('intents.json').read())
 
 words = pickle.load(open('words.pkl', 'rb'))
 classes = pickle.load(open('classes.pkl', 'rb'))
-model = load_model('chatbot_model.h5')
+
+class ChatBotModel(nn.Module):  
+    def __init__(self):  
+        super(ChatBotModel, self).__init__()  
+        self.fc1 = nn.Linear(len(words), 256)  
+        self.fc2 = nn.Linear(256, 64)  
+        self.fc3 = nn.Linear(64, len(classes))  
+  
+    def forward(self, x):  
+        x = F.relu(self.fc1(x))  
+        x = F.dropout(x, p=0.5)  
+        x = F.relu(self.fc2(x))  
+        x = F.dropout(x, p=0.5)  
+        x = self.fc3(x)   
+        return x  
+
+model = ChatBotModel()  
+model.load_state_dict(torch.load('chatbot_model.pth'))  
+model.eval()  
 
 def clean_up_sentence(sentence):
     sentence_words = nltk.word_tokenize(sentence)
@@ -31,17 +51,14 @@ def bag_of_words(sentence):
 
 def predict_class(sentence):
     bow = bag_of_words(sentence)
-    res = model.predict(np.array([bow]))[0]
-    ERROR_THRESHOLD = 0.75
-    results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
-    
-    results.sort(key=lambda x: x[1], reverse=True)
-    return_list = []
-    for r in results:
-        return_list.append(
-            {'intent': classes[r[0]], 'probability': str(r[1])}
-        )
-    return return_list
+    bow = torch.from_numpy(bow).float()
+    res = model(bow)
+    prob, predicted = torch.max(F.softmax(res, dim=0), 0)
+    if prob.item() < 0.75:  # define your threshold here
+        return None
+    else:
+        return [{'intent': classes[predicted.item()], 'probability': prob.item()}]
+
 
 def get_response(intents_list, intents_json):
     if intents_list:
@@ -60,9 +77,19 @@ def get_response(intents_list, intents_json):
     return result
 
 
-#print("GO! Bot is running")
 
-#while True:
-#    message = input("")
-#    res = get_response(predict_class(message), intents)
-#    print(res)
+def predict_class(sentence):
+    bow = bag_of_words(sentence)
+    bow = torch.from_numpy(bow).float()
+    res = model(bow)
+    _, predicted = torch.max(res, 0)
+    return [{'intent': classes[predicted.item()], 'probability': torch.max(F.softmax(res, dim=0)).item()}]
+
+def get_response(intents_list, intents_json):
+    tag = intents_list[0]['intent']
+    list_of_intents = intents_json['intents']
+    for i in list_of_intents:
+        if i['tag'] == tag:
+            result = random.choice(i['responses'])
+            break
+    return result
